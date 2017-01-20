@@ -1,7 +1,7 @@
 ﻿<Window x:Class="GroupMixer.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="GroupMixer" Height="404.692" Width="772.242">
+        Title="GroupMixer" Height="404.692" Width="772.242" Loaded="Window_Loaded">
     <Grid Margin="0,0,-8,0">
         <RichTextBox x:Name="resultText" Margin="10,90,16,10" IsReadOnly="True">
             <RichTextBox.Resources>

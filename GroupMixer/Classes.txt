@@ -1,0 +1,4 @@
+﻿1k:Amalie-Maria,Andreas,Camilla,Caroline,Cecilie,Dilan,Ditte,Emilia,Freja,Gabriela,Jakob,Jens,Johanne,KristineM,KristineR,Lærke,Matilde,Mia,Nicolai,Nikolaj,Rasmus,Rebecca,Richey,SigneM,SigneH,Stine,Ulrik,Viktoria
+1q:Saviya,Amanda,Andreas,Anna,Caroline,Cecilie L,Cecilie W,Christinna,Emma,Freja,Helena,Ida G,Ida M,Kamilla,Line,Louise,Malu,Michelle,Mikkel,Morten,Pernille,Sarah,Sasha,Thea,Zuniku
+2s:Ann,Camilla,Cecilie,Christopher,Emma,Ester,Jannie,Joachim,Joakim C,Julie,Karoline,Kasper,Kristian,Louise,Lucas,Lykke,Mads,Marcus,Mathias,Mikke,Nanna,Oliver M,Oliver R,Rasmus,Sandra,Sofie,Stefan,Thomas,Van Sui,Veronica
+3b:Anna,Camilla,Cecilie L,Cecilie V,Christina,Daniel,Diana,Emma,Emmelie,Fie,Ida,Jeppe,Jonas G,Jonas V,Laura,Line,Mathias B,Mathias M,Michael,Nana,Sofie

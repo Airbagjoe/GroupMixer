@@ -27,24 +27,20 @@ namespace GroupMixer
         public MainWindow()
         {
             InitializeComponent();
-
-            cbTeam.ItemsSource = Team.Teams;
-            cbTeam.DisplayMemberPath = "Name";
-            cbTeam.SelectedIndex = 0;
         }
 
         private void bGroup_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(tbNumberOfGroups.Text))
             {
-                MessageBox.Show(this, "Please enter a number of groupe to divide into.", "Invalid group number", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(this, "Vælge et anket grupper som eleverne skal opdeles i.", "Invalidt antal grupper", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
 
             int nrGroups = int.Parse(tbNumberOfGroups.Text);
             if (nrGroups == 0)
             {
-                MessageBox.Show(this, "The number of groups must be greater than zero.", "Invalid group number", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(this, "Antal grupper skal være større end nul", "Invalidt antal grupper", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
 
@@ -98,8 +94,47 @@ namespace GroupMixer
 
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            var regex = new Regex("[^0-9.-]+"); //regex that matches disallowed text
+            var regex = new Regex("[^0-9]+"); //regex that matches disallowed text
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            const string classFile = "Classes.txt";
+            var teams = new List<Team>();
+
+            if (!File.Exists(classFile))
+            {
+                MessageBox.Show("Classes.txt findes ikke", "Warning", MessageBoxButton.OK);
+                Environment.Exit(0);
+            }
+
+            try
+            {
+                var lines = File.ReadAllLines(classFile).Where(line => line.Contains(":"));
+
+                foreach (var line in lines)
+                {
+                    var dividerIndex = line.IndexOf(":");
+                    var teamName = line.Substring(0, dividerIndex).Trim();
+
+                    if (line.Length > dividerIndex)
+                    {
+                        var teamMembers = line.Substring(dividerIndex + 1).Split(',').Select(member => member.Trim());
+                        teams.Add(new Team(teamName, teamMembers));
+                    }
+                }
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Classes.txt er i et forket format", "Warning", MessageBoxButton.OK);
+                Environment.Exit(0);
+            }
+
+            cbTeam.ItemsSource = teams;
+            cbTeam.DisplayMemberPath = "Name";
+            cbTeam.SelectedIndex = 0;
         }
     }
 }
